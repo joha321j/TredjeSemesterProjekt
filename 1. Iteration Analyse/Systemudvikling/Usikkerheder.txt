@@ -13,3 +13,5 @@ Hvad er deres krav?
 Hvilken slags server skal det køre på?
 
 Hvilke andre teknologiske krav er der for projektet? (Skal det kunne køre på Linux?)
+
+Hvad skal vi tilbyde? (Hvad abonnere man på? Hvilke produkter ønsker Vitec at sælge?)
