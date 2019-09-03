@@ -1,0 +1,6 @@
+Ny teknologi, udviklingsgruppen ikke har brugt før.
+    Hjemmesider
+    Betaling
+    API
+    
+Nye krav hver 14. dag.
