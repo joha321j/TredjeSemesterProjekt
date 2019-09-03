@@ -3,4 +3,13 @@ Ny teknologi, udviklingsgruppen ikke har brugt før.
     Betaling
     API
     
-Nye krav hver 14. dag.
+Nye krav hver 14. dag, hver iteration giver nye udfordinger.
+
+Hvem er deres kundesegmenter specifikt?
+
+Hvem er deres ønskede kundersegmenter med det her projekt? (Er det studerende? folk i arbejde? Begge?)
+Hvad er deres krav?
+
+Hvilken slags server skal det køre på?
+
+Hvilke andre teknologiske krav er der for projektet? (Skal det kunne køre på Linux?)
