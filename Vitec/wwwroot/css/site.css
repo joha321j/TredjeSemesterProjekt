@@ -106,3 +106,13 @@ p {
 .find-us {
     width: 300px;
 }
+
+.login-container {
+    height: 90vh;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.login-center {
+    background-color: white;
+}
