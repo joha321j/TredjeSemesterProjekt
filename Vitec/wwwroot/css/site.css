@@ -76,3 +76,33 @@ html {
     font-size: 24px;
     font-weight: 700;
 }
+
+.text-ex-big {
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.text-ex-smaller {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.text-ex-smallest {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.25;
+    margin: 0px;
+}
+
+.mapContainer {
+    background-image: url(../img/map_b_w.png);
+    background-size: cover;
+    height: 460px;
+}
+
+.find-us {
+    width: 300px;
+}

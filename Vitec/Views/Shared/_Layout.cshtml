@@ -32,7 +32,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Login</a>
                         </li>
                         <li class="nav-item float-right">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/phone.png" alt="Telefon" height="24px" width="24px" />  Kontakt</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact"><img src="~/img/phone.png" alt="Telefon" height="24px" width="24px" />  Kontakt</a>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@
     </header>
     <div class="container-fluid overflow-hidden p-0">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
@@ -50,22 +50,34 @@
         <div class="container p-5">
             <div class="d-flex flex-row justify-content-between">
                 <div>
-                    <h3>Kontakt</h3>
-                    <p>
-                        Tlf: +45 12 34 56 78<br />
-                        Email: kontakt@skilsmis.se<br />
-                        Adresse: Odensevej 24, 5000 Odense C
-                    </p>
+                    <h3>Kontakt os</h3>
+                    <p>E-mail: kontakt@mv-nordic.dk</p>
+                    <p>Hovednummer: 65 91 80 22</p>
+                    <br />
+                    <p>CVR-nr. 15314400</p>
+                    <br />
+                    <p>Åbningstider</p>
+                    <p><strong>Salg</strong> man-tors: 9-15, fre: 9-14</p>
+                    <p><strong>Support</strong> man-tors: 8-16, fre: 9-16</p>
+                </div>
+                <div>
+                    <h3>Find os</h3>
+                    <p>Vitec MV</p>
+                    <p>Lucernemarken 17</p>
+                    <p>5260 Odense S</p>
+                    <br />
+                    <a href="https://www.google.com/maps/dir/%27%27/Lucernemarken+17,+5260+Odense,+Danmark/">Se på Google kort</a>
                 </div>
                 <div>
                     <h3>Sitemap</h3>
                     <p><a asp-area="" asp-controller="Home" asp-action="Index">Forside</a></p>
                     <p><a asp-area="" asp-controller="Home" asp-action="">Login</a></p>
-                    <p><a asp-area="" asp-controller="Home" asp-action="">Kontakt</a></p>
-                    <p><a asp-area="" asp-controller="Home" asp-action="Privacy">Privatlivs Politik</a></p>
+                    <p><a asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a></p>
+                    <p><a asp-area="" asp-controller="Home" asp-action="Privacy">Privatlivspolitik</a></p>
                 </div>
             </div>
-            <p>&copy; 2019 - Vitec MV - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privatlivs Politik</a></p>
+            <br />
+            <p>&copy; 2019 - Vitec MV - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privatlivspolitik</a></p>
         </div>
     </footer>
 
