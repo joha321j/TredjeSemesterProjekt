@@ -39,5 +39,35 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+  line-height: 1;
+  margin: 0px;
 }
 
+.bg-red {
+    background-color: rgba(150, 25, 50, 0.9);
+}
+
+.bg-blue {
+    background-color: rgba(0, 165, 200, 0.9);
+}
+
+.front-left {
+    background-image: url(https://www.mv-nordic.com/wp-content/uploads/2017/11/EdelPhoto-8686.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.front-right {
+    background-image: url(https://www.qs.com/wp-content/uploads/2015/08/shutterstock_106224500-1-e1439289133485.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.row-height {
+    height: 75vh;
+}
+
+.text-big {
+    font-size: 36px;
+    font-weight: 700;
+}
