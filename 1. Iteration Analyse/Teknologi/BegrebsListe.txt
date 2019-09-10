@@ -1,0 +1,12 @@
+Vi bruger internettet(lidt for simpelt?).
+ Til at sende data ud til vores server.
+Vi bruger en port
+ En Software bruges til at etablere forbindelse.
+Vi bruger en IP-adresse
+ Vores hjemmeside og server har en IP-adresse, som bruges til at forbinde med hjemmesiden.
+Vi bruger DNS
+ DNS (Domain Name Service) oversætte domænenavnet til en IP-adresse.
+Vi gør brug af en webserver.
+ Bruges til at hoste vores hjemmeside.
+Vores hjemmside bruges til subnetting.
+ Subnetting giver en mere effektiv brug af IP-adresser.
