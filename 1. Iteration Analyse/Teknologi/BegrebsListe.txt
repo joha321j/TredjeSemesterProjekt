@@ -9,9 +9,17 @@ Vi gør brug af en webserver.
 Vores hjemmside bruges til subnetting.
  Subnetting giver en mere effektiv brug af IP-adresser.
 TCP
+ Transmission Control Protocol er en protokol brugt til at udveksle data sikkert mellem computere i et netværk. På den måde at den garantere levering af data. Det gør via. at den garantere den rigtige rækkefølge på pakker. Samt breuger den en error checksum for at sikre pakkens helhed, hvis ikke dette passer så anmoder den om pakken igen. Samtidig i TCP skal modtageren sende en Acknowledge-pakke for at bekræfte modtagelsen af pakken.
 IP
-OSI
+ Internet Protocol er en protokol der beskriver hvordan kommunikation på tværs af forbundede netværk. Denne protokol sørge for at man kan route data ved hjælp af en IP-adresse. IP muliggører derfor internettet som vi kender det.
+OSI Model
+ Open Systems Interconnection Reference Model er en konceptuel model der standardlisere computer kommunikation i netværk.
+ Den består af 7 lag. Physical, Data Link, Network, Transport, Session, Presentation, Application.
+TCP/IP Model
+ Dette er en protokol samling. TCP/IP samler Session, Presentation og Application i et lag kaldet Application. Samtidig samler den også Physical og Datalink lagene i Network laget. TCP/IP indeholder 4 lag: Network, Internet, Transport og Applicaton.
 ARP
+ Address Resulotion Protocol er en protokol der bliver brugt til at oversætte IP adresser til MAC adresser. Dette bliver opbevaret i en ARP tabel på hosts og routere.
 MAC
+ Media Access Control - adressser er en Hardware ID der er "brændt" ind i maskinen via. en chip.
 HTTP
-HTTPS
+ Hyper Text Transfer Protocol er den protokol der bliver brugt når man tilgår en hjemmeside. HTTP fungerer på TCP port 80.
