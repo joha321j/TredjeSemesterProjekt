@@ -1,5 +1,3 @@
-Vi bruger internettet(lidt for simpelt?).
- Til at sende data ud til vores server.
 Vi bruger en port
  En Software bruges til at etablere forbindelse.
 Vi bruger en IP-adresse
@@ -10,3 +8,10 @@ Vi gør brug af en webserver.
  Bruges til at hoste vores hjemmeside.
 Vores hjemmside bruges til subnetting.
  Subnetting giver en mere effektiv brug af IP-adresser.
+TCP
+IP
+OSI
+ARP
+MAC
+HTTP
+HTTPS
