@@ -1,0 +1,118 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+  line-height: 1;
+  margin: 0px;
+}
+
+.bg-red {
+    background-color: rgba(150, 25, 50, 0.9);
+}
+
+.bg-blue {
+    background-color: rgba(0, 165, 200, 0.9);
+}
+
+.front-left {
+    background-image: url(https://www.mv-nordic.com/wp-content/uploads/2017/11/EdelPhoto-8686.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.front-right {
+    background-image: url(https://www.qs.com/wp-content/uploads/2015/08/shutterstock_106224500-1-e1439289133485.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.row-height {
+    height: 75vh;
+}
+
+.text-big {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.text-medium {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.text-ex-big {
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.text-ex-smaller {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.text-ex-smallest {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.25;
+    margin: 0px;
+}
+
+.mapContainer {
+    background-image: url(../img/map_b_w.png);
+    background-size: cover;
+    height: 460px;
+}
+
+.find-us {
+    width: 300px;
+}
+
+.login-container {
+    height: 90vh;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.login-center {
+    background-color: white;
+}
