@@ -1,0 +1,21 @@
+Bred målgruppe
+    Alle private ordblinde borgere gennem hele deres liv.
+
+Forskellige målgrupper:
+    Skolebørn
+    Gymnasielever/Studerende
+    Privat kunder, som ønsker skrive-/læsehjælp i det private
+    Folk med læsebesvær
+    Vitec MV's marketings folk skal kunne bruge hjemmesiden til at lave nye kampagner,
+    tilbud og produkter.
+
+Forskellige scenarier:
+    Betaling
+    CRUD Abonnementer
+    CRUD Brugere
+
+Integrationer med andre systemer:
+    Integrere med deres nuværende kundesystem
+    
+
+Nye krav hver 14. dag.
