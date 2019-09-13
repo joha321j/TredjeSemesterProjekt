@@ -9,7 +9,7 @@ Vi gør brug af en webserver.
 Vores hjemmside bruges til subnetting.
  Subnetting giver en mere effektiv brug af IP-adresser.
 TCP
- Transmission Control Protocol er en protokol brugt til at udveksle data sikkert mellem computere i et netværk. På den måde at den garantere levering af data. Det gør via. at den garantere den rigtige rækkefølge på pakker. Samt breuger den en error checksum for at sikre pakkens helhed, hvis ikke dette passer så anmoder den om pakken igen. Samtidig i TCP skal modtageren sende en Acknowledge-pakke for at bekræfte modtagelsen af pakken.
+ Transmission Control Protocol er en protokol brugt til at udveksle data sikkert mellem computere i et netværk. På den måde at den garantere levering af data. Det gør via. at den garantere den rigtige rækkefølge på pakker. Samt bruger den en error checksum for at sikre pakkens helhed, hvis ikke dette passer så anmoder den om pakken igen. Samtidig i TCP skal modtageren sende en Acknowledge-pakke for at bekræfte modtagelsen af pakken.
 IP
  Internet Protocol er en protokol der beskriver hvordan kommunikation på tværs af forbundede netværk. Denne protokol sørge for at man kan route data ved hjælp af en IP-adresse. IP muliggører derfor internettet som vi kender det.
 OSI Model
