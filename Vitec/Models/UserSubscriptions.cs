@@ -7,10 +7,10 @@ namespace Vitec.Models
 {
     public class UserSubscriptions
     {
-        public int UserID { get; set; }
-        public int SubscriptionID { get; set; }
+        public User User { get; set; }
+        public Subscription Subscription { get; set; }
         public DateTime SignUpDate { get; set; }
         public DateTime ExpDate { get; set; }
-        public bool AutomaaticBilling { get; set; }
+        public bool AutomaticBilling { get; set; }
     }
 }
