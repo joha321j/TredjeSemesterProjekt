@@ -7,6 +7,7 @@ namespace Vitec.Models
 {
     public class UserCards
     {
+        public int ID { get; set; }
         public Card Card { get; set; }
         public User User { get; set; }
     }
