@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Vitec.Models;
+using VitecData;
+using VitecServices;
 
 namespace Vitec
 {
