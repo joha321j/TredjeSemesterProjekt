@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Vitec.Models
+namespace VitecData.Models
 {
-    public class UserCards
+    public class Product
     {
         public int ID { get; set; }
-        public Card Card { get; set; }
-        public User User { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
