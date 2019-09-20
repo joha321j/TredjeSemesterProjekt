@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Vitec.Models;
 using VitecData;
 using VitecServices;
@@ -17,9 +18,12 @@ namespace Vitec
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly ILogger _logger;
+
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
             Configuration = configuration;
+            _logger = logger;
         }
 
         public IConfiguration Configuration { get; }
@@ -39,6 +43,7 @@ namespace Vitec
 
             services.AddDbContext<VitecContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VitecContext")));
+            _logger.LogInformation("Added VitecContext to services");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,7 @@ namespace Vitec
         {
             if (env.IsDevelopment())
             {
+                _logger.LogInformation("In Development environment");
                 app.UseDeveloperExceptionPage();
             }
             else
