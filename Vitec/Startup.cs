@@ -43,6 +43,7 @@ namespace Vitec
 
             services.AddDbContext<VitecContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VitecContext")));
+
             _logger.LogInformation("Added VitecContext to services");
         }
 
@@ -56,6 +57,7 @@ namespace Vitec
             }
             else
             {
+                _logger.LogInformation("In production environment AOEUOAHDOANEHUOTANUHEATONUAENOTUHEATONUOATNU");
                 app.UseExceptionHandler("/Home/Error");
             }
 

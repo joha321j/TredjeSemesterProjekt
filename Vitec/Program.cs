@@ -16,8 +16,10 @@ namespace Vitec
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
+
             var logger = host.Services.GetRequiredService<ILogger<Program>>();
             logger.LogInformation("Seeded the database.");
+
             host.Run();
         }
 
