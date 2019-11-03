@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Vitec.Models;
 using VitecData;
 using VitecData.Models;
+using VitecData.ServiceInterfaces;
 using VitecServices;
 
 namespace Vitec
@@ -42,6 +43,7 @@ namespace Vitec
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<VitecContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VitecContext")));
