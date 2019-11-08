@@ -42,11 +42,13 @@ namespace Vitec.Controllers
                 //return RedirectToAction("Details", "User");
             }
 
-            if (await _userService.LoginUser(username, password))
+            var loginResult = await _userService.LoginUser(username, password);
+
+            /*if (loginResult)
             {
-                return RedirectToAction("Details");
+                return RedirectToAction(nameof(Details));
                 //Response.Redirect("/AccountDetails");
-            }
+            }*/
 
             var model = new LoginViewModel
             {
@@ -61,7 +63,7 @@ namespace Vitec.Controllers
         public async Task<IActionResult> SignOut()
         {
             await _userService.SignOutUser();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Login));
         }
 
         // GET: User/Create
@@ -94,8 +96,8 @@ namespace Vitec.Controllers
         }
 
         // GET: User/Details
-        //[Route("AccountDetails")]
         [Authorize]
+        [Route("login")]
         public IActionResult Details()
         {
             var model = new WebUserViewModel
