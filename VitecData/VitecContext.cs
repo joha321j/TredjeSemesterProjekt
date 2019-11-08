@@ -8,7 +8,7 @@ using VitecData.Models;
 
 namespace VitecData
 {
-    public class VitecContext : IdentityDbContext<User>
+    public class VitecContext : IdentityDbContext<WebUser>
     {
         public VitecContext (DbContextOptions<VitecContext> options)
             : base(options)

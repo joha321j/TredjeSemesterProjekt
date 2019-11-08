@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using VitecData;
-using VitecData.Migrations;
+using VitecData.Models;
 using VitecData.ServiceInterfaces;
 
 namespace VitecServices
@@ -13,10 +13,10 @@ namespace VitecServices
     public class UserService : IUserService
     {
         private VitecContext _context;
-        private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        private UserManager<WebUser> _userManager;
+        private SignInManager<WebUser> _signInManager;
 
-        public UserService(VitecContext context, UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserService(VitecContext context, UserManager<WebUser> userManager, SignInManager<WebUser> signInManager)
         {
             _context = context;
             _userManager = userManager;
@@ -29,6 +29,25 @@ namespace VitecServices
             var result = await _signInManager.PasswordSignInAsync(username, password, true, false);
 
             return result.Succeeded;
+        }
+
+        public async Task<bool> CreateNewUser(string username, string password, string firstName, string lastName, string address, int zip)
+        {
+            var result = await _userManager.CreateAsync(new WebUser
+            {
+                UserName = username,
+                FirstName = firstName,
+                LastName = lastName,
+                Address = address,
+                ZIP = zip
+            }, password);
+
+            return result.Succeeded;
+        }
+
+        public async Task SignOutUser()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 }

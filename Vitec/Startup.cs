@@ -50,7 +50,7 @@ namespace Vitec
 
             _logger.LogInformation("Added VitecContext to services");
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<WebUser, IdentityRole>()
                 .AddEntityFrameworkStores<VitecContext>()
                 .AddDefaultTokenProviders();
 

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using VitecData;
+using VitecData.ServiceInterfaces;
 
-namespace VitecData
+namespace Vitec.Models
 {
     public static class SeedData
     {

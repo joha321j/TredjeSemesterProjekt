@@ -6,28 +6,29 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Vitec.Models;
 using VitecData.ServiceInterfaces;
 
 namespace Vitec.Controllers
 {
-    public class UserController : Controller
+    public class WebUserController : Controller
     {
         private IUserService _userService;
 
-        public UserController(IUserService userService)
+        public WebUserController(IUserService userService)
         {
             _userService = userService;
         }
 
         // GET: Login Page
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
-            if (User.Identity.IsAuthenticated)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction(nameof(Details));
+                Response.Redirect("AccountDetails");
             }
-            return View();
+            return View(new LoginViewModel());
         }
 
         // POST: User/Login
@@ -35,14 +36,16 @@ namespace Vitec.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string username, string password)
         {
-            if (User.Identity.IsAuthenticated)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction("Details");
+                //return RedirectToAction("Details", "User");
             }
 
             if (await _userService.LoginUser(username, password))
             {
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction("Details");
+                //Response.Redirect("/AccountDetails");
             }
 
             var model = new LoginViewModel
@@ -52,6 +55,13 @@ namespace Vitec.Controllers
             };
 
             return View(model);
+        }
+
+        [Route("logout")]
+        public async Task<IActionResult> SignOut()
+        {
+            await _userService.SignOutUser();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: User/Create
@@ -84,10 +94,16 @@ namespace Vitec.Controllers
         }
 
         // GET: User/Details
+        //[Route("AccountDetails")]
         [Authorize]
         public IActionResult Details()
         {
-            return View();
+            var model = new WebUserViewModel
+            {
+                Username = "lol"
+            };
+
+            return View(model);
         }
 
         

@@ -9,6 +9,6 @@ namespace VitecData.Models
     {
         public int ID { get; set; }
         public Card Card { get; set; }
-        public User User { get; set; }
+        public WebUser User { get; set; }
     }
 }

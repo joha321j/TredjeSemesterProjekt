@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitecData;
 
 namespace VitecData.Migrations
 {
     [DbContext(typeof(VitecContext))]
-    partial class VitecContextModelSnapshot : ModelSnapshot
+    [Migration("20191108094329_Initial-Users")]
+    partial class InitialUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,7 +270,7 @@ namespace VitecData.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.Property<int>("ZIP");
+                    b.Property<int?>("ZIP1");
 
                     b.HasKey("Id");
 
@@ -279,6 +281,8 @@ namespace VitecData.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("ZIP1");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -368,6 +372,13 @@ namespace VitecData.Migrations
                     b.HasOne("VitecData.Models.WebUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("VitecData.Models.WebUser", b =>
+                {
+                    b.HasOne("VitecData.Models.ZipCity", "ZIP")
+                        .WithMany()
+                        .HasForeignKey("ZIP1");
                 });
 #pragma warning restore 612, 618
         }

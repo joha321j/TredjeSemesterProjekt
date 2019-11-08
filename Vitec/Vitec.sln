@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vitec", "Vitec.csproj", "{F044D30E-4FCA-4E70-A9B0-25E88D909B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vitec", "Vitec.csproj", "{F044D30E-4FCA-4E70-A9B0-25E88D909B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitecData", "..\VitecData\VitecData.csproj", "{A215B09F-B96B-4208-B4BB-8DD132D6F007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VitecData", "..\VitecData\VitecData.csproj", "{A215B09F-B96B-4208-B4BB-8DD132D6F007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitecServices", "..\VitecServices\VitecServices.csproj", "{D8AE1A56-F122-4998-AB57-1B6A1F5DED2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VitecServices", "..\VitecServices\VitecServices.csproj", "{D8AE1A56-F122-4998-AB57-1B6A1F5DED2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
