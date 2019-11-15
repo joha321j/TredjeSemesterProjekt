@@ -18,9 +18,4 @@
     <ProjectReference Include="..\VitecServices\VitecServices.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\" />
-  </ItemGroup>
-
 </Project>
