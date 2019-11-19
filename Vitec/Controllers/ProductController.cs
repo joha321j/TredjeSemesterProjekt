@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Vitec.Controllers.Repositories;
 using Vitec.Models;
 using VitecData;
 using VitecData.Models;
@@ -16,46 +17,42 @@ namespace Vitec.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly ProductRepository _productRepository;
         private readonly ILogger<ProductController> _logger;
         private readonly VitecContext _context;
         private readonly ProductViewModel _productViewModel = new ProductViewModel();
-        private readonly string _connectionString = "http://vitecapi.azurewebsites.net/";
+        private readonly string _connectionString = "http://vitecapi.azurewebsites.net/api/products";
 
         public ProductController(ILogger<ProductController> logger, VitecContext context)
         {
             _logger = logger;
             _context = context;
+            _productRepository = new ProductRepository(_connectionString);
         }
 
         public async Task<IActionResult> Index()
         {
             _logger.LogDebug("User has accessed /Product/Index");
 
-            InitializeApi();
+            _productViewModel.Products = _productRepository.Products;
 
             return View(_productViewModel);
-        }
-
-        private void InitializeApi()
-        {
-            string data;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_connectionString + "api/products");
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream ?? throw new InvalidOperationException()))
-            {
-                data = reader.ReadToEnd();
-            }
-
-            var model = JsonConvert.DeserializeObject<List<Product>>(data);
-
-            _productViewModel.Products = model;
         }
 
         public IActionResult Create()
         {
             return View();
+        }
+
+        public IActionResult Details(int Id) // TO DO: Make this actually work.
+        {
+            ProductDetailsViewModel productDetailsViewModel = new  ProductDetailsViewModel();
+
+            productDetailsViewModel.Product = _productRepository.Products.FirstOrDefault(p => p.ID == Id);
+            //productDetailsViewModel.Subscriptions = ; // TO DO
+
+
+            return View(productDetailsViewModel);
         }
     }
 }
