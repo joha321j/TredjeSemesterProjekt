@@ -17,17 +17,22 @@ namespace Vitec.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductRepository _productRepository;
         private readonly ILogger<ProductController> _logger;
         private readonly VitecContext _context;
         private readonly ProductViewModel _productViewModel = new ProductViewModel();
-        private readonly string _connectionString = "http://vitecapi.azurewebsites.net/api/products";
+        private readonly string _connectionString = "http://vitecapi.azurewebsites.net";
+        private readonly ProductRepository _productRepository;
+        private readonly SubscriptionRepository _subscriptionRepository;
+        private readonly PriceRepository _priceRepository;
 
         public ProductController(ILogger<ProductController> logger, VitecContext context)
         {
             _logger = logger;
             _context = context;
-            _productRepository = new ProductRepository(_connectionString);
+            _productRepository = new ProductRepository(_connectionString+ "/api/products");
+            _subscriptionRepository = new SubscriptionRepository(_connectionString + "/api/subscriptions");
+            _priceRepository = new PriceRepository(_connectionString + "/api/prices");
+
         }
 
         public async Task<IActionResult> Index()
@@ -49,7 +54,7 @@ namespace Vitec.Controllers
             ProductDetailsViewModel productDetailsViewModel = new  ProductDetailsViewModel();
 
             productDetailsViewModel.Product = _productRepository.Products.FirstOrDefault(p => p.ID == Id);
-            //productDetailsViewModel.Subscriptions = ; // TO DO
+            productDetailsViewModel.Subscriptions = _subscriptionRepository.Subscriptions.Where(s => s.ID == Id).ToList();
 
 
             return View(productDetailsViewModel);

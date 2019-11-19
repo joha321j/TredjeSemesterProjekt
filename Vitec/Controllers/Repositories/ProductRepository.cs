@@ -13,7 +13,6 @@ namespace Vitec.Controllers.Repositories
     public class ProductRepository
     {
         public List<Product> Products { get; set; }
-        public List<Subscription> Subscriptions { get; set; }
 
         public ProductRepository(string connectionString)
         {
