@@ -3,10 +3,10 @@
 
 // Write your JavaScript code.
 
-function seePricesProducts() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+function seePricesProducts(firstSpanId, buttonId, moreTextId) {
+    var dots = document.getElementById(firstSpanId);
+    var moreText = document.getElementById(moreTextId);
+    var btnText = document.getElementById(buttonId);
 
     if (dots.style.display === "none") {
         dots.style.display = "inline";

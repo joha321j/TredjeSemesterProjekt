@@ -20,24 +20,41 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Products)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+    @{
+        int i = 0;
+        foreach (var item in Model.Products)
+        {
+            i++;
+            string idSpan = "dots" + i;
+            string idButton = "button" + i;
+            string idMore = "more" + i;
             <tr>
-                <p><span id="dots"></span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div>
+                        <span id=@idSpan></span>
+                        <span id=@idMore>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(modelItem => item.Name)
+                                    </th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </span>
+                    </div>
 
-                <button onclick="seePricesProducts()" id="myBtn">Se priser</button>
-                @*<a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
-            Detaljer
-        </a>*@
+                <button onclick="seePricesProducts('@Html.Encode(idSpan)', '@Html.Encode(idButton)', '@Html.Encode(idMore)')" id="@idButton">Se priser</button>
+             </td>
             </tr>
-        </tr>
+        }
     }
     </tbody>
 </table>
