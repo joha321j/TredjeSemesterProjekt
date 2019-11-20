@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductAPIVitec.Models;
 
 namespace ProductAPIVitec.Migrations
 {
     [DbContext(typeof(ProductAPIVitecContext))]
-    partial class ProductAPIVitecContextModelSnapshot : ModelSnapshot
+    [Migration("20191120084356_ZipCity")]
+    partial class ZipCity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
