@@ -19,12 +19,12 @@ namespace Vitec.Controllers
         {
             _logger = logger;
 
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 userService.CreateNewUser("Doduchis", "a", "Emilie", "Holst", "Kohaven 20", 1699);
                 userService.CreateNewUser("Forculd", "a", "Nina", "Jepsen", "Grønvejen 46", 3210);
                 userService.CreateNewUser("MarBri", "a", "Marianne", "Briansen", "Maevej 41", 5690);
-            }
+            }*/
         }
         public IActionResult Index()
         {
