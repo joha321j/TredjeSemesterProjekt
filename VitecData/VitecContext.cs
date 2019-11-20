@@ -15,11 +15,11 @@ namespace VitecData
         {
         }
 
-        public DbSet<Card> Cards { get; set; }
+        /*public DbSet<Card> Cards { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<UserCards> UserCards { get; set; }
         public DbSet<UserSubscriptions> UserSubscriptions { get; set; }
-        public DbSet<ZipCity> ZipCities { get; set; }
+        public DbSet<ZipCity> ZipCities { get; set; }*/
     }
 }
