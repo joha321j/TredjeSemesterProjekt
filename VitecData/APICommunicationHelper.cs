@@ -9,7 +9,7 @@ namespace VitecData
 {
     public static class APICommunicationHelper
     {
-        public static void GetData<T>(string connectionString, out List<T> ts)
+        public static void GetData<T>(string connectionString, out T t)
         {
             string data;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(connectionString);
@@ -21,9 +21,9 @@ namespace VitecData
                 data = reader.ReadToEnd();
             }
 
-            var model = JsonConvert.DeserializeObject<List<T>>(data);
+            var model = JsonConvert.DeserializeObject<T>(data);
 
-            ts = model;
+            t = model;
         }
     }
 }
