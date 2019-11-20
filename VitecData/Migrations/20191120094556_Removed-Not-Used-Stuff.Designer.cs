@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitecData;
 
 namespace VitecData.Migrations
 {
     [DbContext(typeof(VitecContext))]
-    partial class VitecContextModelSnapshot : ModelSnapshot
+    [Migration("20191120094556_Removed-Not-Used-Stuff")]
+    partial class RemovedNotUsedStuff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,6 +131,40 @@ namespace VitecData.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("VitecData.Models.Card", b =>
+                {
+                    b.Property<long>("cardID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("ExpDate");
+
+                    b.Property<int>("SecurityNumbers");
+
+                    b.HasKey("cardID");
+
+                    b.ToTable("Card");
+                });
+
+            modelBuilder.Entity("VitecData.Models.UserCards", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserId");
+
+                    b.Property<long?>("cardID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("cardID");
+
+                    b.ToTable("UserCards");
+                });
+
             modelBuilder.Entity("VitecData.Models.WebUser", b =>
                 {
                     b.Property<string>("Id")
@@ -231,6 +267,17 @@ namespace VitecData.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("VitecData.Models.UserCards", b =>
+                {
+                    b.HasOne("VitecData.Models.WebUser", "User")
+                        .WithMany("UserCards")
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("VitecData.Models.Card", "Card")
+                        .WithMany()
+                        .HasForeignKey("cardID");
                 });
 #pragma warning restore 612, 618
         }

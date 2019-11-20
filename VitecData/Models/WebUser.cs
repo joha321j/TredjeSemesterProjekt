@@ -13,6 +13,6 @@ namespace VitecData.Models
         public string Address { get; set; }
         public int ZIP { get; set; }
         //public ZipCity ZIP { get; set; }
-        public ICollection<UserCards> UserCards { get; set; }
+        //public ICollection<UserCards> UserCards { get; set; }
     }
 }

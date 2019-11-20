@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitecData;
 
 namespace VitecData.Migrations
 {
     [DbContext(typeof(VitecContext))]
-    partial class VitecContextModelSnapshot : ModelSnapshot
+    [Migration("20191120094835_Removed-UserCards")]
+    partial class RemovedUserCards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
