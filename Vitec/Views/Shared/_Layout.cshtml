@@ -13,36 +13,16 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" type="image/png" href="~/img/vitec_fav_icon.png" sizes="32x32" />
 </head>
-<body >
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/vitec-logo.png" alt="Vitec MV Logo" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex  flex-sm-row-reverse">
-					<ul class="navbar-nav float-right">
-						<li class="nav-item float-right">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-						</li>
-						<li class="nav-item float-right">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Details">Users</a>
-						</li>
-						<li class="nav-item float-right">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact"><img src="~/img/phone.png" alt="Telefon" height="24px" width="24px" />  Kontakt</a>
-						</li>
-					</ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body>
+<header>
+    <partial name="_LoginPartial" />
+    
+</header>
     <div class="container-fluid overflow-hidden p-0">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="">
