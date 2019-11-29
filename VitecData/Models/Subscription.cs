@@ -9,7 +9,7 @@ namespace VitecData.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public Price Price { get; set; }
         public int BillingFrequency { get; set; }
         public Product Product { get; set; }
     }

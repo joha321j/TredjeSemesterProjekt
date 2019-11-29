@@ -1,63 +1,143 @@
 ﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using VitecData.Models
 @model Vitec.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1 class="border-bottom">Index</h1>
+<br/>
 @*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+        <a asp-action="Create">Create New</a>
+    </p>*@
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Products[0].Name)
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    @{
-        int i = 0;
-        foreach (var item in Model.Products)
-        {
-            i++;
-            string idSpan = "dots" + i;
-            string idButton = "button" + i;
-            string idMore = "more" + i;
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <div>
-                        <span id=@idSpan></span>
-                        <span id=@idMore>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(modelItem => item.Name)
-                                    </th>
-                                </tr>
-                                </thead>
-                            </table>
-                        </span>
-                    </div>
 
-                <button onclick="seePricesProducts('@Html.Encode(idSpan)', '@Html.Encode(idButton)', '@Html.Encode(idMore)')" id="@idButton">Se priser</button>
-             </td>
-            </tr>
-        }
+<h3>
+    @Html.DisplayNameFor(model => model.Products[0].Name)
+</h3>
+@{
+    int i = 0;
+
+    foreach (Product modelProduct in Model.Products)
+    {
+        i++;
+        string idSpan = "dots" + i;
+        string idButton = "button" + i;
+        string idMore = "more" + i;
+        <h4 class="border-bottom">
+            @Html.DisplayFor(modelItem => modelProduct.Name)
+        </h4>
+        <br />
+        <p class="border-bottom-1">
+            @Html.DisplayFor(modelItem => modelProduct.Description)
+        </p>
+        <br />
+        <br />
+        <span id=@idSpan></span>
+        <span id=@idMore>
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        Prisoversigt
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    @foreach (var subscription in Model.Subscriptions.Where(sub => sub.Product.ID == modelProduct.ID))
+                    {
+                        <tr class="flex-grow-1">
+                            <td>
+                                @Html.DisplayFor(modelItem => subscription.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => subscription.BillingFrequency)         
+                            </td>
+                            <td>
+                                @subscription.Price.ToString()
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+        </span>
+
+        <button type="button" class="btn btn-outline-secondary" onclick="seePricesProducts('@Html.Encode(idSpan)', '@Html.Encode(idButton)', '@Html.Encode(idMore)')" id="@idButton">Se priser</button>
     }
-    </tbody>
-</table>
+
+}
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products[0].Name)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+                foreach (var item in Model.Products)
+                {
+                    i++;
+                    string idSpan = "dots" + i;
+                    string idButton = "button" + i;
+                    string idMore = "more" + i;
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                    <tr>
+                        <td>
+                            <div>
+                                <span id=@idSpan></span>
+                                <span id=@idMore>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Priser
+                                                </th>
+                                                <th>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach (var subscription in Model.Subscriptions.Where(sub => sub.Product.ID == item.ID))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => subscription.Name)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => subscription.BillingFrequency)
+                                                    </td>
+                                                    <td>
+                                                        @subscription.Price.ToString()
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </span>
+                            </div>
+
+                            <button type="button" class="btn btn-outline-secondary" onclick="seePricesProducts('@Html.Encode(idSpan)', '@Html.Encode(idButton)', '@Html.Encode(idMore)')" id="@idButton">Se priser</button>
+                        </td>
+                    </tr>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>*@
 
 
- 

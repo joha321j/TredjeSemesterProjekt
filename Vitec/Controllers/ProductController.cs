@@ -40,6 +40,7 @@ namespace Vitec.Controllers
             _logger.LogDebug("User has accessed /Product/Index");
 
             _productViewModel.Products = _productRepository.Products;
+            _productViewModel.Subscriptions = _subscriptionRepository.Subscriptions;
 
             return View(_productViewModel);
         }
@@ -47,17 +48,6 @@ namespace Vitec.Controllers
         public IActionResult Create()
         {
             return View();
-        }
-
-        public IActionResult Details(int Id) // TO DO: Make this actually work.
-        {
-            ProductDetailsViewModel productDetailsViewModel = new  ProductDetailsViewModel();
-
-            productDetailsViewModel.Product = _productRepository.Products.FirstOrDefault(p => p.ID == Id);
-            productDetailsViewModel.Subscriptions = _subscriptionRepository.Subscriptions.Where(s => s.ID == Id).ToList();
-
-
-            return View(productDetailsViewModel);
         }
     }
 }

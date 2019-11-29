@@ -24,7 +24,9 @@ namespace ProductAPIVitec.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Subscription>>> GetSubscription()
         {
-            return await _context.Subscription.ToListAsync();
+            return await _context.Subscription
+                .Include(sub => sub.Price)
+                .Include(sub => sub.Product).ToListAsync();
         }
 
         // GET: api/Subscriptions/5
