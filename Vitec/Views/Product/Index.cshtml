@@ -36,7 +36,7 @@
         <br />
         <span id=@idSpan></span>
         <span id=@idMore>
-            <table>
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>
@@ -48,7 +48,7 @@
                 
                     @foreach (var subscription in Model.Subscriptions.Where(sub => sub.Product.ID == modelProduct.ID))
                     {
-                        <tr class="flex-grow-1">
+                        <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => subscription.Name)
                             </td>
