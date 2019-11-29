@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace VitecData.ServiceInterfaces
 {
@@ -9,7 +10,7 @@ namespace VitecData.ServiceInterfaces
     {
         Task<bool> LoginUser(string username, string password);
 
-        Task<bool> CreateNewUser(string username, string password, string firstName, string lastName, string address,
+        Task<IdentityResult> CreateNewUser(string username, string email, string password, string firstName, string lastName, string address,
             int zip);
 
         Task SignOutUser();

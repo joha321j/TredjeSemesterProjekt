@@ -31,18 +31,20 @@ namespace VitecServices
             return result.Succeeded;
         }
 
-        public async Task<bool> CreateNewUser(string username, string password, string firstName, string lastName, string address, int zip)
+        public async Task<IdentityResult> CreateNewUser(string username, string email, string password, string firstName,
+            string lastName, string address, int zip)
         {
             var result = await _userManager.CreateAsync(new WebUser
             {
                 UserName = username,
+                Email = email,
                 FirstName = firstName,
                 LastName = lastName,
                 Address = address,
                 ZIP = zip
             }, password);
 
-            return result.Succeeded;
+            return result;
         }
 
         public async Task SignOutUser()
