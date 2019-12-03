@@ -72,7 +72,7 @@ namespace ProductAPIVitec.Data
                         Name = "Monthly",
                         Price = context.Price.ToList()[0],
                         BillingFrequency = 1,
-                        Product = context.Product.ToList()[0],
+                        Product = context.Product.ToList()[0]
                     });
 
                 context.Subscription.AddRange(

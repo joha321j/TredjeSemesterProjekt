@@ -16,7 +16,6 @@ namespace ProductAPIVitec.Controllers
     {
         private readonly ProductAPIVitecContext _context;
 
-
         // GET: api/Subscriptions/
         public SubscriptionsController(ProductAPIVitecContext context)
         {

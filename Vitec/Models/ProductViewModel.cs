@@ -9,5 +9,6 @@ namespace Vitec.Models
     public class ProductViewModel
     {
         public List<Product> Products { get; set; }
+        public List<Subscription> Subscriptions { get; set; }
     }
 }
