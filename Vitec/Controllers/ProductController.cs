@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Vitec.Controllers.Repositories;
 using Vitec.Models;
 using VitecData;
 using VitecData.Models;
@@ -19,38 +20,29 @@ namespace Vitec.Controllers
         private readonly ILogger<ProductController> _logger;
         private readonly VitecContext _context;
         private readonly ProductViewModel _productViewModel = new ProductViewModel();
-        private readonly string _connectionString = "http://vitecapi.azurewebsites.net/";
+        private readonly string _connectionString = "http://vitecapi.azurewebsites.net";
+        private readonly ProductRepository _productRepository;
+        private readonly SubscriptionRepository _subscriptionRepository;
+        private readonly PriceRepository _priceRepository;
 
         public ProductController(ILogger<ProductController> logger, VitecContext context)
         {
             _logger = logger;
             _context = context;
+            _productRepository = new ProductRepository(_connectionString+ "/api/products");
+            _subscriptionRepository = new SubscriptionRepository(_connectionString + "/api/subscriptions");
+            _priceRepository = new PriceRepository(_connectionString + "/api/prices");
+
         }
 
         public async Task<IActionResult> Index()
         {
             _logger.LogDebug("User has accessed /Product/Index");
 
-            InitializeApi();
+            _productViewModel.Products = _productRepository.Products;
+            _productViewModel.Subscriptions = _subscriptionRepository.Subscriptions;
 
             return View(_productViewModel);
-        }
-
-        private void InitializeApi()
-        {
-            string data;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_connectionString + "api/products");
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream ?? throw new InvalidOperationException()))
-            {
-                data = reader.ReadToEnd();
-            }
-
-            var model = JsonConvert.DeserializeObject<List<Product>>(data);
-
-            _productViewModel.Products = model;
         }
 
         public IActionResult Create()

@@ -9,8 +9,8 @@ namespace ProductAPIVitec.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int PriceId { get; set; }
+        public Price Price { get; set; }
         public int BillingFrequency { get; set; }
-        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }
