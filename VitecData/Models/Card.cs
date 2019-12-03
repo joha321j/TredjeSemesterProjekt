@@ -8,6 +8,7 @@ namespace VitecData.Models
 {
     public class Card
     {
+        [ProtectedPersonalData]
         public long cardID { get; set; }
 
         [ProtectedPersonalData]
