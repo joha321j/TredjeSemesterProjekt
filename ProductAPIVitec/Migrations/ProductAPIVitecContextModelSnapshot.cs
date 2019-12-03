@@ -81,7 +81,20 @@ namespace ProductAPIVitec.Migrations
                     b.HasOne("ProductAPIVitec.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+                        
+                 });
+                 
+            modelBuilder.Entity("ProductAPIVitec.Models.ZipCity", b =>
+                {
+                    b.Property<int>("Zip");
+
+                    b.Property<string>("CityName");
+
+                    b.HasKey("Zip");
+
+                    b.ToTable("ZipCities");
                 });
+                
 #pragma warning restore 612, 618
         }
     }

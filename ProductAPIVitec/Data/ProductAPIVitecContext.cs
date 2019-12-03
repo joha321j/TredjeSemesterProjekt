@@ -12,5 +12,6 @@ namespace ProductAPIVitec.Models
         public DbSet<Product> Product { get; set; }
         public DbSet<Price> Price { get; set; }
         public DbSet<Subscription> Subscription { get; set; }
+        public DbSet<ZipCity> ZipCities { get; set; }
     }
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Vitec.Models;
+using VitecData;
+using VitecData.ServiceInterfaces;
 
 namespace Vitec.Controllers
 {
@@ -13,9 +15,16 @@ namespace Vitec.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUserService userService, VitecContext context)
         {
             _logger = logger;
+
+            /*if (!context.Users.Any())
+            {
+                userService.CreateNewUser("Doduchis", "a", "Emilie", "Holst", "Kohaven 20", 1699);
+                userService.CreateNewUser("Forculd", "a", "Nina", "Jepsen", "Grønvejen 46", 3210);
+                userService.CreateNewUser("MarBri", "a", "Marianne", "Briansen", "Maevej 41", 5690);
+            }*/
         }
         public IActionResult Index()
         {

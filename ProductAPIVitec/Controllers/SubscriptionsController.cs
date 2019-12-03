@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductAPIVitec.Models;
+using ProductAPIVitec.ViewModels;
 
 namespace ProductAPIVitec.Controllers
 {
@@ -15,18 +16,39 @@ namespace ProductAPIVitec.Controllers
     {
         private readonly ProductAPIVitecContext _context;
 
+        // GET: api/Subscriptions/
         public SubscriptionsController(ProductAPIVitecContext context)
         {
             _context = context;
         }
 
-        // GET: api/Subscriptions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Subscription>>> GetSubscription()
         {
-            return await _context.Subscription
-                .Include(sub => sub.Price)
-                .Include(sub => sub.Product).ToListAsync();
+            return await _context.Subscription.ToListAsync();
+        }
+
+        // GET: api/Subscriptions/GetSubscriptionViewModels
+        [Route("GetSubscriptionViewModels")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<SubscriptionViewModel>>> GetSubscriptionViewModels()
+        {
+            List<SubscriptionViewModel> subscriptionViewModels = new List<SubscriptionViewModel>();
+            var subscriptions = await _context.Subscription.ToListAsync();
+
+            foreach (Subscription subscription in subscriptions)
+            {
+                subscriptionViewModels.Add(new SubscriptionViewModel
+                {
+                    Id = subscription.Id, 
+                    Name = subscription.Name,
+                    BillingFrequency = subscription.BillingFrequency,
+                    Price = _context.Price.FirstOrDefault(p => p.Id == subscription.PriceId),
+                    Product = _context.Product.FirstOrDefault(product => product.Id == subscription.Id)
+                });
+            }
+
+            return subscriptionViewModels;
         }
 
         // GET: api/Subscriptions/5
