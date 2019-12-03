@@ -60,9 +60,9 @@ namespace ProductAPIVitec.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("PriceId");
+                    b.Property<int>("Price");
 
-                    b.Property<int>("ProductId");
+                    b.Property<int>("Product");
 
                     b.HasKey("Id");
 

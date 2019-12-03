@@ -70,81 +70,81 @@ namespace ProductAPIVitec.Data
                     new Subscription
                     {
                         Name = "Monthly",
-                        PriceId = context.Price.ToList()[0].Id,
+                        Price = context.Price.ToList()[0],
                         BillingFrequency = 1,
-                        ProductId = context.Product.ToList()[0].Id,
+                        Product = context.Product.ToList()[0],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Quarterly",
-                        PriceId = context.Price.ToList()[1].Id,
+                        Price = context.Price.ToList()[1],
                         BillingFrequency = 3,
-                        ProductId = context.Product.ToList()[0].Id,
+                        Product = context.Product.ToList()[0],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Half-Year",
-                        PriceId = context.Price.ToList()[2].Id,
+                        Price = context.Price.ToList()[2],
                         BillingFrequency = 6,
-                        ProductId = context.Product.ToList()[0].Id,
+                        Product = context.Product.ToList()[0],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Monthly",
-                        PriceId = context.Price.ToList()[0].Id,
+                        Price = context.Price.ToList()[0],
                         BillingFrequency = 1,
-                        ProductId = context.Product.ToList()[1].Id,
+                        Product = context.Product.ToList()[1],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Quarterly",
-                        PriceId = context.Price.ToList()[1].Id,
+                        Price = context.Price.ToList()[1],
                         BillingFrequency = 3,
-                        ProductId = context.Product.ToList()[1].Id,
+                        Product = context.Product.ToList()[1],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Half-Year",
-                        PriceId = context.Price.ToList()[2].Id,
+                        Price = context.Price.ToList()[2],
                         BillingFrequency = 6,
-                        ProductId = context.Product.ToList()[1].Id,
+                        Product = context.Product.ToList()[1],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Monthly",
-                        PriceId = context.Price.ToList()[0].Id,
+                        Price = context.Price.ToList()[0],
                         BillingFrequency = 1,
-                        ProductId = context.Product.ToList()[2].Id,
+                        Product = context.Product.ToList()[2],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Quarterly",
-                        PriceId = context.Price.ToList()[1].Id,
+                        Price = context.Price.ToList()[1],
                         BillingFrequency = 3,
-                        ProductId = context.Product.ToList()[2].Id,
+                        Product = context.Product.ToList()[2],
                     });
 
                 context.Subscription.AddRange(
                     new Subscription
                     {
                         Name = "Half-Year",
-                        PriceId = context.Price.ToList()[2].Id,
+                        Price = context.Price.ToList()[2],
                         BillingFrequency = 6,
-                        ProductId = context.Product.ToList()[2].Id,
+                        Product = context.Product.ToList()[2],
                     });
 
 
