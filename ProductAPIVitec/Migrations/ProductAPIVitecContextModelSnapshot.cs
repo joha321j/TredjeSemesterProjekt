@@ -72,18 +72,6 @@ namespace ProductAPIVitec.Migrations
                     b.ToTable("Subscription");
                 });
 
-            modelBuilder.Entity("ProductAPIVitec.Models.Subscription", b =>
-                {
-                    b.HasOne("ProductAPIVitec.Models.Price", "Price")
-                        .WithMany()
-                        .HasForeignKey("PriceId");
-
-                    b.HasOne("ProductAPIVitec.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-                        
-                 });
-                 
             modelBuilder.Entity("ProductAPIVitec.Models.ZipCity", b =>
                 {
                     b.Property<int>("Zip");
@@ -105,7 +93,6 @@ namespace ProductAPIVitec.Migrations
                         .WithMany()
                         .HasForeignKey("ProductId");
                 });
-                
 #pragma warning restore 612, 618
         }
     }

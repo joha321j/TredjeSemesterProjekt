@@ -10,8 +10,8 @@ using ProductAPIVitec.Models;
 namespace ProductAPIVitec.Migrations
 {
     [DbContext(typeof(ProductAPIVitecContext))]
-    [Migration("20191203093903_update-subscription-model")]
-    partial class updatesubscriptionmodel
+    [Migration("20191203095136_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
