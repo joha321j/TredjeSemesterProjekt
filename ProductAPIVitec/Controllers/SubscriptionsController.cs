@@ -25,30 +25,7 @@ namespace ProductAPIVitec.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Subscription>>> GetSubscription()
         {
-            return await _context.Subscription.ToListAsync();
-        }
-
-        // GET: api/Subscriptions/GetSubscriptionViewModels
-        [Route("GetSubscriptionViewModels")]
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<SubscriptionViewModel>>> GetSubscriptionViewModels()
-        {
-            List<SubscriptionViewModel> subscriptionViewModels = new List<SubscriptionViewModel>();
-            var subscriptions = await _context.Subscription.ToListAsync();
-
-            foreach (Subscription subscription in subscriptions)
-            {
-                subscriptionViewModels.Add(new SubscriptionViewModel
-                {
-                    Id = subscription.Id, 
-                    Name = subscription.Name,
-                    BillingFrequency = subscription.BillingFrequency,
-                    Price = _context.Price.FirstOrDefault(p => p.Id == subscription.PriceId),
-                    Product = _context.Product.FirstOrDefault(product => product.Id == subscription.Id)
-                });
-            }
-
-            return subscriptionViewModels;
+            return await _context.Subscription.Include(subscription => subscription.Price).Include(subscription => subscription.Product).ToListAsync();
         }
 
         // GET: api/Subscriptions/5
