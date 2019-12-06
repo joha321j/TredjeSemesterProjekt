@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using VitecData.Models;
 using VitecData;
+using VitecServices;
 
 namespace Vitec.Controllers.Repositories
 {

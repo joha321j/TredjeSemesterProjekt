@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductAPIVitec.Models;
 
 namespace ProductAPIVitec.Models
 {
@@ -13,5 +14,6 @@ namespace ProductAPIVitec.Models
         public DbSet<Price> Price { get; set; }
         public DbSet<Subscription> Subscription { get; set; }
         public DbSet<ZipCity> ZipCities { get; set; }
+        public DbSet<ProductAPIVitec.Models.IpAddress> IpAddress { get; set; }
     }
 }
