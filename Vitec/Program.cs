@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Vitec.Models;
 using VitecData;
 
 namespace Vitec
@@ -23,6 +22,19 @@ namespace Vitec
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
+
+                try
+                {
+                    var context = services.GetRequiredService<VitecContext>();
+                    context.Database.Migrate();
+
+                    SeedData.Initialize(services, context).Wait();
+                }
+                catch (Exception e)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(e, "Error occured during seeding the Database");
+                }
             }
 
             host.Run();
