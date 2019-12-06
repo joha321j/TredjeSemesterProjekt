@@ -5,6 +5,7 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using VitecData;
@@ -43,7 +44,15 @@ namespace VitecServices
         {
             _ipAddresses.Add(connectionIpAddress);
 
-            
+            APICommunicationHelper.PutData(_connectionString, connectionIpAddress);
+        }
+    }
+
+    public static class VisitorLoggingMiddleExtension
+    {
+        public static IApplicationBuilder UseVisitorLoggingMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<VisitorLoggingMiddleware>();
         }
     }
 }

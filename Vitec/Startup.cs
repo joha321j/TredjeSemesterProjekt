@@ -89,6 +89,7 @@ namespace Vitec
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseVisitorLoggingMiddleware();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
