@@ -39,7 +39,7 @@ namespace ProductAPIVitec.Controllers
             return await _context.ZipCities.ToListAsync();
         }
 
-        public async Task<IEnumerable<ZipCity>> UpdateZips()
+        private async Task<IEnumerable<ZipCity>> UpdateZips()
         {
             using (HttpClient client = new HttpClient())
             {
