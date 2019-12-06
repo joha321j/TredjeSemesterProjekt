@@ -38,7 +38,6 @@ namespace Vitec.Controllers
         public async Task<IActionResult> Index()
         {
             _logger.LogDebug("User has accessed /Product/Index");
-
             _productViewModel.Products = _productRepository.Products;
             _productViewModel.Subscriptions = _subscriptionRepository.Subscriptions;
 
