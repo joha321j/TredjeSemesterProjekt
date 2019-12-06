@@ -81,7 +81,7 @@ namespace Vitec
             }
             else
             {
-                _logger.LogInformation("In production environment AOEUOAHDOANEHUOTANUHEATONUAENOTUHEATONUOATNU");
+                _logger.LogInformation("In production environment");
                 app.UseExceptionHandler("/Home/Error");
             }
 
@@ -89,6 +89,7 @@ namespace Vitec
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseVisitorLoggingMiddleware();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
