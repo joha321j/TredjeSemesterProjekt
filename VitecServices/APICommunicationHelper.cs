@@ -27,11 +27,11 @@ namespace VitecData
             t = model;
         }
 
-        public static void PutData<T>(string connectionString, T t)
+        public static async void PutData<T>(string connectionString, T t)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PutAsJsonAsync(connectionString, t);
+                var response = await client.PostAsJsonAsync(connectionString, t);
             }
         }
     }

@@ -81,7 +81,7 @@ namespace Vitec
             }
             else
             {
-                _logger.LogInformation("In production environment AOEUOAHDOANEHUOTANUHEATONUAENOTUHEATONUOATNU");
+                _logger.LogInformation("In production environment");
                 app.UseExceptionHandler("/Home/Error");
             }
 

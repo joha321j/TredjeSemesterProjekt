@@ -31,7 +31,7 @@ namespace VitecServices
 
         public async Task InvokeAsync(HttpContext context)
         {
-            IpAddress connectionIpAddress = new IpAddress(context.Connection.RemoteIpAddress.MapToIPv6().ToString());
+            IpAddress connectionIpAddress = new IpAddress(context.Connection.RemoteIpAddress.MapToIPv4().ToString());
             if (!_ipAddresses.Contains(connectionIpAddress))
             {
                 AddIpToList(connectionIpAddress);
