@@ -14,16 +14,15 @@ namespace VitecData
     {
         public static async Task Initialize(IServiceProvider serviceProvider, VitecContext context)
         {
-            var roleName = "admin";
             var pass = "!QAZ1qaz";
 
             var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
 
             if (!context.Users.Any())
             {
-                if (!await roleManager.RoleExistsAsync(roleName))
+                if (!await roleManager.RoleExistsAsync(Constants.AdministratorRoleName))
                 {
-                    await roleManager.CreateAsync(new IdentityRole(roleName));
+                    await roleManager.CreateAsync(new IdentityRole(Constants.AdministratorRoleName));
                 }
 
                 var userManager = serviceProvider.GetService<UserManager<WebUser>>();
@@ -36,7 +35,7 @@ namespace VitecData
                 };
 
                 await userManager.CreateAsync(user, pass);
-                await userManager.AddToRoleAsync(user, roleName);
+                await userManager.AddToRoleAsync(user, Constants.AdministratorRoleName);
             }
 
             context.SaveChanges();

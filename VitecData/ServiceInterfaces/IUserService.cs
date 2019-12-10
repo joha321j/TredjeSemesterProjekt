@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using VitecData.Models;
 
 namespace VitecData.ServiceInterfaces
 {
@@ -14,5 +15,7 @@ namespace VitecData.ServiceInterfaces
             int zip);
 
         Task SignOutUser();
+
+        Task<IEnumerable<WebUser>> GetAllUsers();
     }
 }
