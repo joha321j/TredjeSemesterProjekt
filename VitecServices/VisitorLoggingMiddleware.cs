@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -32,7 +33,8 @@ namespace VitecServices
         public async Task InvokeAsync(HttpContext context)
         {
             IpAddress connectionIpAddress = new IpAddress(context.Connection.RemoteIpAddress.MapToIPv4().ToString());
-            if (!_ipAddresses.Contains(connectionIpAddress))
+            var tempIpList = _ipAddresses.Where(ip => ip.Address.Equals(connectionIpAddress.Address)).ToList();
+            if (tempIpList.Count == 0)
             {
                 AddIpToList(connectionIpAddress);
             }
