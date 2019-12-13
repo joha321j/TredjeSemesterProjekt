@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -50,6 +51,11 @@ namespace VitecServices
         public async Task SignOutUser()
         {
             await _signInManager.SignOutAsync();
+        }
+
+        public async Task<IEnumerable<WebUser>> GetAllUsers()
+        {
+            return  _userManager.Users.ToList();
         }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
-using Vitec.Models;
+using VitecData.Models;
 using VitecData.ServiceInterfaces;
 
 namespace Vitec.Controllers
@@ -21,65 +20,33 @@ namespace Vitec.Controllers
             _userService = userService;
         }
 
-        // GET: Login Page
-        public IActionResult Login()
+        [Authorize(Policy = Constants.ManageUsersPolicyName)]
+        public async Task<ActionResult> Index()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("AccountDetails");
-            }
-            return View(new LoginViewModel());
-        }
-
-        // POST: User/Login
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string username, string password)
-        {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Details");
-                //return RedirectToAction("Details", "User");
-            }
-
-            var loginResult = await _userService.LoginUser(username, password);
-
-            /*if (loginResult)
-            {
-                return RedirectToAction(nameof(Details));
-                //Response.Redirect("/AccountDetails");
-            }*/
-
-            var model = new LoginViewModel
-            {
-                Username = username,
-                Error = "Kunne ikke logge ind, prøv igen."
-            };
-
+            var model = await _userService.GetAllUsers();
             return View(model);
         }
 
-        [Route("logout")]
-        public async Task<IActionResult> SignOut()
+        // GET: WebUser/Details/5
+        public ActionResult Details(int id)
         {
-            await _userService.SignOutUser();
-            return RedirectToAction(nameof(Login));
+            return View();
         }
 
-        // GET: User/Create
+        // GET: WebUser/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
+        // POST: WebUser/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
             try
             {
-                
+                // TODO: Add insert logic here
 
                 return RedirectToAction(nameof(Index));
             }
@@ -89,34 +56,13 @@ namespace Vitec.Controllers
             }
         }
 
-        // GET: User
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: User/Details
-        [Authorize]
-        [Route("login")]
-        public IActionResult Details()
-        {
-            var model = new WebUserViewModel
-            {
-                Username = "lol"
-            };
-
-            return View(model);
-        }
-
-        
-
-        // GET: User/Edit/5
+        // GET: WebUser/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: User/Edit/5
+        // POST: WebUser/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -133,13 +79,13 @@ namespace Vitec.Controllers
             }
         }
 
-        // GET: User/Delete/5
+        // GET: WebUser/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: User/Delete/5
+        // POST: WebUser/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
