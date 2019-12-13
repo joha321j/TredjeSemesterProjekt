@@ -1,0 +1,5 @@
+\babel@toc {danish}{}
+\contentsline {section}{\numberline {1}Form\IeC {\r a}l}{3}{section.1}
+\contentsline {section}{\numberline {2}Hjemmeside}{3}{section.2}
+\contentsline {section}{\numberline {3}Arkitektur}{3}{section.3}
+\contentsline {section}{\numberline {4}API}{3}{section.4}
