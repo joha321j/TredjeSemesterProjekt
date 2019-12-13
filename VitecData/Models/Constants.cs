@@ -7,6 +7,10 @@ namespace VitecData.Models
 {
     public static class Constants
     {
+        // Roles
         public const string AdministratorRoleName = "admin";
+
+        // Policies
+        public const string ManageUsersPolicyName = "ManageUsers";
     }
 }

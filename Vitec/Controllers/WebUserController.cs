@@ -20,7 +20,7 @@ namespace Vitec.Controllers
             _userService = userService;
         }
 
-        [Authorize(Roles = Constants.AdministratorRoleName)]
+        [Authorize(Policy = Constants.ManageUsersPolicyName)]
         public async Task<ActionResult> Index()
         {
             var model = await _userService.GetAllUsers();

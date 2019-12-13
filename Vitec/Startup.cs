@@ -42,6 +42,11 @@ namespace Vitec
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(Constants.ManageUsersPolicyName,
+                    policy => policy.RequireRole(Constants.AdministratorRoleName));
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<IUserService, UserService>();
