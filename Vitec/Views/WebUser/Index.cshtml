@@ -1,0 +1,11 @@
+﻿@model IEnumerable<VitecData.Models.WebUser>
+@{
+    ViewData["Title"] = "Bruger Kontrol";
+}
+
+<div class="container py-5 my-5">
+    @foreach (var user in @Model)
+    {
+        <p>@user.UserName</p>
+    }
+</div>
