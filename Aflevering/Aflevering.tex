@@ -61,8 +61,8 @@ Consensus er dog, at hvis din hjemmeside skal være mere kompleks, som  f.eks si
 
 Da vi har delt vores hjemmeside op i flere dele:
 \begin{itemize}
-    \item En database
-    \item En api
+    \item En database, der indeholder vores data
+    \item En API, der facilitere kommunikationen mellem database og hjemmeside.
     \item En hjemmeside, som brugeren tilgår.
 \end{itemize}
 
@@ -71,6 +71,9 @@ For at undgå god classes har vi valgt at have flere controllers, som hver har a
 
 \section{API}
 
+Til at håndtere kommunikationen med vores database har vi valgt at gøre brug af en RESTful API.
+Fordelen ved dette er, at det er nemmere at skifte en database ud, uden at vi skal modificere vores hjemmeside.
+Derudover betyder det også, at vores hjemmeside er sat op til at kommunikere med en API, hvilket er en fordel, da vi ved at Vitec MV gør brug af en API til deres brugerhåndtering.
 
 
 \end{document}
