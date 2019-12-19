@@ -85,7 +85,7 @@ Derudover giver den også mulighed for at API'ens ejer kan skrive sine kontaktin
 Vores implementation af Swagger kan ses på \url{http://vitecapi.azurewebsites.net/index.html}.
 
 Swagger er måske ikke det mest relevante til vores projekt for Vitec, da deres API ikke er offentligt tilgængelig, og det derfor ikke er så vigtigt at kunne fremvise, hvad den tilbyder.
-Vi har dog valgt stadig at implementere det, da det var et emne fra undervisningen, som vi gerne ville have lagt helt fast, og det gav os en nem måde internt at overskue vores API.
+Vi har dog valgt stadig at implementere det, da det var et emne fra undervisningen, som vi gerne ville have lagt helt fast.
 
 \section{Sikkerhed}
 
@@ -121,8 +121,6 @@ Denne metode behandler den angivne URL og kaster en exception, hvis URL'en ikke 
 Noget af det sidste, som vi nåede at implementere på vores hjemmeside var et login system og tilhørende authorization.
 Dog har vi ikke noget at gøre fuldt brug af det, men har lige nu kun sat authorization på en enkelt del af hjemmesiden, som proof of concept til os selv.
 
-Vi gør brug af policy-based authorization, hvilket betyder, at vi tilføjer en policy under startup af projektet, og for at kunne tilgå en del af hjemmesiden, skal du opfylde den policy.
-Vores policies er lige nu kun baseret på brugeres roller, da vi kun har 2 brugertyper i form af en kunde og en administrator.
-Vi har dog valgt stadig at køre det som policy based istedet for role based, da vi mener, at det er nemmere at skalere policy based authorization.
+Vi gør brug af policy-based authorization, hvilket betyder, at 
 
 \end{document}
