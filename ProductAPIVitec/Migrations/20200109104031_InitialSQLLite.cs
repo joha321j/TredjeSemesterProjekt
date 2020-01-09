@@ -1,18 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProductAPIVitec.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialSQLLite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "IpAddress",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Address = table.Column<string>(nullable: true),
+                    LoggedTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IpAddress", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Price",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Value = table.Column<double>(nullable: false),
                     Valuta = table.Column<string>(nullable: true)
                 },
@@ -26,7 +40,7 @@ namespace ProductAPIVitec.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true)
                 },
@@ -52,7 +66,7 @@ namespace ProductAPIVitec.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     PriceId = table.Column<int>(nullable: true),
                     BillingFrequency = table.Column<int>(nullable: false),
@@ -88,6 +102,9 @@ namespace ProductAPIVitec.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "IpAddress");
+
             migrationBuilder.DropTable(
                 name: "Subscription");
 

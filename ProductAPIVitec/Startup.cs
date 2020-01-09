@@ -31,7 +31,7 @@ namespace ProductAPIVitec
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<ProductAPIVitecContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ProductAPIVitecContext")));
+                    options.UseSqlite(Configuration.GetConnectionString("ProductAPIVitecContext")));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

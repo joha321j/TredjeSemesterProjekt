@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitecData;
@@ -10,16 +9,14 @@ using VitecData;
 namespace VitecData.Migrations
 {
     [DbContext(typeof(VitecContext))]
-    [Migration("20191108095204_ZIP")]
-    partial class ZIP
+    [Migration("20200109103755_SQLLite")]
+    partial class SQLLite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -39,8 +36,7 @@ namespace VitecData.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -48,8 +44,7 @@ namespace VitecData.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
 
@@ -68,8 +63,7 @@ namespace VitecData.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
 
@@ -131,101 +125,6 @@ namespace VitecData.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("VitecData.Models.Card", b =>
-                {
-                    b.Property<long>("cardID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("ExpDate");
-
-                    b.Property<int>("SecurityNumbers");
-
-                    b.HasKey("cardID");
-
-                    b.ToTable("Cards");
-                });
-
-            modelBuilder.Entity("VitecData.Models.Product", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("VitecData.Models.Subscription", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<TimeSpan>("BillingFrequency");
-
-                    b.Property<string>("Name");
-
-                    b.Property<double>("Price");
-
-                    b.Property<int?>("ProductID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("Subscriptions");
-                });
-
-            modelBuilder.Entity("VitecData.Models.UserCards", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserId");
-
-                    b.Property<long?>("cardID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("cardID");
-
-                    b.ToTable("UserCards");
-                });
-
-            modelBuilder.Entity("VitecData.Models.UserSubscriptions", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("AutomaticBilling");
-
-                    b.Property<DateTime>("ExpDate");
-
-                    b.Property<DateTime>("SignUpDate");
-
-                    b.Property<int?>("SubscriptionID");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("SubscriptionID");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserSubscriptions");
-                });
-
             modelBuilder.Entity("VitecData.Models.WebUser", b =>
                 {
                     b.Property<string>("Id")
@@ -279,23 +178,9 @@ namespace VitecData.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("VitecData.Models.ZipCity", b =>
-                {
-                    b.Property<int>("ZIP")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CityName");
-
-                    b.HasKey("ZIP");
-
-                    b.ToTable("ZipCities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -341,35 +226,6 @@ namespace VitecData.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("VitecData.Models.Subscription", b =>
-                {
-                    b.HasOne("VitecData.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID");
-                });
-
-            modelBuilder.Entity("VitecData.Models.UserCards", b =>
-                {
-                    b.HasOne("VitecData.Models.WebUser", "User")
-                        .WithMany("UserCards")
-                        .HasForeignKey("UserId");
-
-                    b.HasOne("VitecData.Models.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("cardID");
-                });
-
-            modelBuilder.Entity("VitecData.Models.UserSubscriptions", b =>
-                {
-                    b.HasOne("VitecData.Models.Subscription", "Subscription")
-                        .WithMany()
-                        .HasForeignKey("SubscriptionID");
-
-                    b.HasOne("VitecData.Models.WebUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

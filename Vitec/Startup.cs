@@ -52,7 +52,7 @@ namespace Vitec
             services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<VitecContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("VitecContext")));
+                    options.UseSqlite(Configuration.GetConnectionString("VitecContext")));
 
             _logger.LogInformation("Added VitecContext to services");
 
