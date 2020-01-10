@@ -20,7 +20,7 @@ namespace Vitec.Controllers
         private readonly ILogger<ProductController> _logger;
         private readonly VitecContext _context;
         private readonly ProductViewModel _productViewModel = new ProductViewModel();
-        private readonly string _connectionString = "http://localhost:53397";
+        private readonly string _connectionString = "http://localhost:50360";
         private readonly ProductRepository _productRepository;
         private readonly SubscriptionRepository _subscriptionRepository;
         private readonly PriceRepository _priceRepository;

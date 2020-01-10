@@ -17,7 +17,7 @@ namespace VitecServices
     {
         private List<IpAddress> _ipAddresses;
         private readonly RequestDelegate _next;
-        private string _connectionString = "http://localhost:53397/api/ipaddresses";
+        private string _connectionString = "http://localhost:50360/api/ipaddresses";
 
         public VisitorLoggingMiddleware(RequestDelegate next)
         {

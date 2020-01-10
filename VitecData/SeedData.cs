@@ -14,7 +14,7 @@ namespace VitecData
     {
         public static async Task Initialize(IServiceProvider serviceProvider, VitecContext context)
         {
-            var pass = "!QAZ1qaz";
+            var pass = "&[{;,.";
 
             var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
 
